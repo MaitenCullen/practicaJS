@@ -116,8 +116,9 @@ function obtener_precio(mediodePago){
 function porcentaje_nafta(){
     let total = 40;
     let nafta=document.getElementById("cantNafta").value;
-    while (nafta != total) {
-       switch (nafta + 1) {
+    while (nafta <= total) {
+        nafta ++;
+       switch (nafta) {
            case (nafta <= total / 2):
                 alert("tenes medio tanque");
                 break;
@@ -125,7 +126,7 @@ function porcentaje_nafta(){
                 alert("tenes cuarto tanque");
                 break;
             case (nafta <= total * 10 /100):
-            alert("estas en reserva");
+                alert("estas en reserva");
             break;
             case (nafta == 0):
                alert("ya no tenes nafta");
