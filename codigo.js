@@ -22,12 +22,11 @@ function nombre_usuario(a, b){
     
     
 //coccion minutos
-
+let tiempo_cocina = parseInt(prompt("ingrese el tiempo total"));
+let tiempo_inicial = tiempo_cocina;
+let un_cuarto_tiempo = tiempo_cocina / 4;
+let sacar_torta;
     for(tiempo_cocina ; tiempo_cocina >= -1; tiempo_cocina --){
-        let tiempo_cocina = parseInt(prompt("ingrese el tiempo total"));
-        let tiempo_inicial = tiempo_cocina;
-        let un_cuarto_tiempo = tiempo_cocina / 4;
-        let sacar_torta;
         console.log("El tiempo total de coccion es " +  tiempo_cocina);
         if (tiempo_inicial / 2 == tiempo_cocina) {
             console.log(tiempo_cocina + " es la mitad de la coccion" );
@@ -98,9 +97,10 @@ function nombre_usuario(a, b){
  }
 
 //tarjeta switch
-function obtener_precio(mediodePago){
-    var costo_curso;
-    switch (costo_curso) {
+
+function obtener_precio(){
+    let formadePago = prompt("ingresar forma de pago");
+    switch (formadePago) {
         case "tres cuotas":
              alert("$3.500");
              break;
@@ -112,31 +112,78 @@ function obtener_precio(mediodePago){
          break;
     }
  }
- 
+
+ function motorEnMarcha() {
+     let tanque = 50;
+     while (tanque > 0) {
+         tanque = tanque -1;
+         console.log(tanque)
+         switch (tanque) {
+             case 10:
+                alert("Estas en reserva, el tanque tiene " + tanque + " litros")
+                let quiereCargar = prompt("queres cargar nafta?")
+                if (quiereCargar === 'si') {
+                    tanque = 50;
+                }
+                
+                 break;
+            case 0:
+            alert("te quedaste sin nafta el tanque tiene  " + tanque + " litros")
+                break;   
+         }
+     }
+ }
+ //nafta
 function porcentaje_nafta(){
     let total = 40;
-    let nafta=document.getElementById("cantNafta").value;
-    while (nafta <= total) {
-        nafta ++;
-       switch (nafta) {
-           case (nafta <= total / 2):
-                alert("tenes medio tanque");
-                break;
-            case (nafta <= total / 4):
-                alert("tenes cuarto tanque");
-                break;
-            case (nafta <= total * 10 /100):
-                alert("estas en reserva");
-            break;
-            case (nafta == 0):
-               alert("ya no tenes nafta");
-            break;
-            default:
-                alert ( "andas bien de nafta");
-            break;
-       }
-    }
+    let nafta = document.getElementById("cantNafta").value;
+  if ( nafta >= total || nafta >= total/2){
+      alert("estas bien de nafta");
+  }
+  if (nafta < 20 && nafta > 5){
+    alert("Tenes menos de medio tanque");
+  }
+  else if (nafta <= 5 && nafta >0 ){
+      alert( "estas en reserva");
+  }
+  else {
+    alert("te quedaste sin nafta")
+  }
 }
 
 
+
+function ingresarProducto() {
+    let producto = prompt ("elija el producto");
+    console.log(producto.replace(/ /g, ""));
+    let costoProducto;
+    if (producto === "producto 1") {
+        costoProducto = 200;
+    }
+    if (producto === "producto 2") {
+        costoProducto = 300;
+    }
+    if(producto === "producto 1" || producto === "producto 2" ){
+        compras_eventos(costoProducto)
+    }
+    else {
+        alert("le pifiaste")
+    }
+}
+
+function compras_eventos(precio){
+    const impuesto = precio * 21 / 100;
+    let medioPago = prompt("elija medio pago");
+    switch (medioPago) {
+        case "tres cuotas":
+             alert(precio + impuesto * 0.30);
+             break;
+         case "efectivo":
+             alert(precio + impuesto);
+             break;
+         case "un pago":
+         alert(precio + impuesto * 0.10);
+         break;
+    }
+}
 
