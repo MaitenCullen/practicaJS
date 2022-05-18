@@ -187,3 +187,44 @@ function compras_eventos(precio){
     }
 }
 
+//perros
+//objeto perros
+const perros = { 
+    raza: "caniche",
+    color: "blanco",
+    peso: 23,
+}
+console.log(perros.peso)
+
+let gatos = {
+    color: "marron",
+    pelaje: "largo",
+}
+
+function animales_domesticos (bicho, tamaño, comida){
+    this.bicho = bicho;
+    this.tamaño = tamaño;
+    this.comida = comida;
+}
+let perro1 = new animales_domesticos ("perro", "chico", "carnivoro");
+let gatito1 = new animales_domesticos("gato", "grande", "carnivoro");
+//arrays
+
+let animales = [perro1, gatito1];
+animales[0].tamaño;
+animales[0].tamaño="grande";//le cambie el tamaño a perro, no vuelve a ser chico
+const humanos = ["chinos", "japoneses", "argentinos", "africanos", "alemanes", 790000];
+const seres_vivos = animales.concat(humanos)
+seres_vivos.reverse()
+
+humanos.includes("yankee")
+humanos.includes("argentinos")
+
+
+let helados = ["chocolate", "dulce de leche", "banana split", 250];
+console.log(helados)
+helados.push("menta granizada"); //agregp
+
+helados.splice(3, 2) //me saco el precio y la menta granizada
+
+
