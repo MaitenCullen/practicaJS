@@ -1,0 +1,11 @@
+section{
+    background-image: url(./img/sandero\ tierra.jpg);
+    background-repeat: repeat;
+}
+footer{
+   background-color: rgb(89, 131, 199);
+}
+.TextoCentro{
+    text-align: center;
+    font-weight: bold;
+}

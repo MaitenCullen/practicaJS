@@ -220,6 +220,9 @@ seres_vivos.reverse()
 humanos.includes("yankee")
 humanos.includes("argentinos")
 
+//some para humanos
+console.log (humanos.some((la) => la == "brasilero")) //me devuelve false
+console.log(humanos.some((la)=> la== 'argentinos')) //me devuelve true
 
 let helados = ["chocolate", "dulce de leche", "banana split", 250];
 console.log(helados)
@@ -227,4 +230,66 @@ helados.push("menta granizada"); //agregp
 
 helados.splice(3, 2) //me saco el precio y la menta granizada
 
+//me devuelve las clases de manejo con un descuento
+const clases_manejo = [
+    {id: 1, nombre: 'Teoricas', precio: 1000, tarjeta: 'si'},
+    {id: 2,nombre: 'Teoricas y practicas', precio: 2000, tarjeta: 'si'},
+    {id: 3,nombre: 'Practicas', precio: 1500, tarjeta: 'si'},
+    {id: 4,nombre: 'Estacionamiento', precio: 1000, tarjeta: 'no'},
+    {id: 5,nombre: 'Curso completo', precio: 2500, tarjeta: 'si'},
+]
 
+const precio_efectivo = clases_manejo.map((la) => {
+    return {
+        nombre: la.nombre,
+        precio: la.precio - 1.30,
+    }
+})
+
+console.log(precio_efectivo)
+
+const seleccionar = clases_manejo.find(nombre => nombre.id === 2)
+console.log(seleccionar) 
+
+const existe = clases_manejo.some(nombre => nombre.nombre === 'virtual')
+console.log(existe ) // false
+
+
+const datos_personales = [
+    {nombre: 'pepito', apellido: 'perez', dni: 1125125},
+    {nombre: 'juanita', apellido: 'gonzalez', dni: 25253},
+    {nombre: 'maria', apellido: 'sanchez', dni: 25248},
+    {nombre: 'juancito',apellido: 'gutierrez', dni: 25788},
+    {nombre: 'victoria', apellido: 'vera', dni: 965998},
+]
+
+let nombre1 = datos_personales.find((el) => el.nombre === "juanita")
+console.log(nombre1)
+
+
+
+//ejemplo celulares
+
+let celulares = [
+     {id:1, marca:}
+]
+//  //constructor para inicializarlo
+//  @param {*} modelo
+//  @param {*} marca
+//  @param {*} precio
+//  @param {*} id
+//  @param{*} origen
+
+class celular{
+   
+    constructor( modelo, marca, precio, origen){
+        this.modelo = modelo;
+        this.marca = marca;
+        this.precio = precio;
+        this.id = -1;
+        this.origen = origen;
+    }
+    mostrar_celular(){
+        return(this.modelo + "-"+ this.marca + "-" + this.origen + "-" + this.precio);
+    }
+}
