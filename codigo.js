@@ -231,28 +231,49 @@ helados.push("menta granizada"); //agregp
 helados.splice(3, 2) //me saco el precio y la menta granizada
 
 //me devuelve las clases de manejo con un descuento
-const clases_manejo = [
+let clases_manejo = [
     {id: 1, nombre: 'Teoricas', precio: 1000, tarjeta: 'si'},
-    {id: 2,nombre: 'Teoricas y practicas', precio: 2000, tarjeta: 'si'},
-    {id: 3,nombre: 'Practicas', precio: 1500, tarjeta: 'si'},
-    {id: 4,nombre: 'Estacionamiento', precio: 1000, tarjeta: 'no'},
-    {id: 5,nombre: 'Curso completo', precio: 2500, tarjeta: 'si'},
+    {id: 2, nombre: 'Teoricas y practicas', precio: 2000, tarjeta: 'si'},
+    {id: 3, nombre: 'Practicas', precio: 1500, tarjeta: 'si'},
+    {id: 4, nombre: 'Estacionamiento', precio: 1000, tarjeta: 'no'},
+    {id: 5, nombre: 'Curso completo', precio: 2500, tarjeta: 'si'},
 ]
-
-const precio_efectivo = clases_manejo.map((la) => {
+let precio_clases = clases_manejo.map((clase) => {
     return {
-        nombre: la.nombre,
-        precio: la.precio - 1.30,
+        nombre: clase.nombre,
+        precio: clase.precio - 1.30,
     }
-})
+}) 
 
-console.log(precio_efectivo)
+console.log(precio_clases);
 
 const seleccionar = clases_manejo.find(nombre => nombre.id === 2)
 console.log(seleccionar) 
 
 const existe = clases_manejo.some(nombre => nombre.nombre === 'virtual')
 console.log(existe ) // false
+
+function opciones() {
+    const curso_seleccionado = document.getElementById("selector_curso").value;
+    if (curso_seleccionado != "00") {
+     let efectivo = prompt("desea pagar en efectivo?");
+     clases_manejo.map(clase =>{
+        if(clase.id == curso_seleccionado) {
+            if ( efectivo == "si"){
+                const Descuento = (clase.precio * 30) / 100;
+                const precioConDescuento =(clase.precio - Descuento);
+                console.log(clase)
+                alert(precioConDescuento)
+            }
+            else {
+                const precioTarjeta = clase.precio;
+                        alert(precioTarjeta)
+                        console.log(clase)
+                }
+            }
+         })
+    }
+ }
 
 
 const datos_personales = [
@@ -266,30 +287,31 @@ const datos_personales = [
 let nombre1 = datos_personales.find((el) => el.nombre === "juanita")
 console.log(nombre1)
 
+//ejemplo productos
+const productos = [ {id: 1,  producto: "Arroz", precio: 125},
+                    {id: 2,  producto: "Fideo", precio: 70},
+                    {id: 3,  producto: "Pan"  , precio: 90},
+                    {id: 4,  producto: "Flan" , precio: 100},
+                    {id: 5,  producto: "Harina" , precio: 150},
+                    {id: 6,  producto: "Leche" , precio: 140},
+                    {id: 7,  producto: "Manteca" , precio: 120},]
 
 
-//ejemplo celulares
+const buscado = productos.find(producto => producto.id === 3)
+console.log(buscado) //me encuentra el pan
 
-let celulares = [
-     {id:1, marca:}
-]
-//  //constructor para inicializarlo
-//  @param {*} modelo
-//  @param {*} marca
-//  @param {*} precio
-//  @param {*} id
-//  @param{*} origen
+const hay_producto = productos.some(producto => producto.nombre === 'vino')
+console.log(existe ) // me daria false, tuve que re declararla porque la tenia arriba con el nombre existe
 
-class celular{
-   
-    constructor( modelo, marca, precio, origen){
-        this.modelo = modelo;
-        this.marca = marca;
-        this.precio = precio;
-        this.id = -1;
-        this.origen = origen;
-    }
-    mostrar_celular(){
-        return(this.modelo + "-"+ this.marca + "-" + this.origen + "-" + this.precio);
-    }
-}
+const baratos = productos.filter(producto => producto.precio < 100)
+console.log(baratos)
+// [{id: 2,producto:"Fideo",precio:70},{id:3,producto:"Pan",precio: 50}]
+const caros = productos.filter(producto => producto.precio > 100)
+alert("es un producto caro, sale más de 100")
+
+const listaNombres = productos.map(producto => producto.nombre)
+console.log(listaNombres);
+//[“Arroz”, “Fideo”, “Pan”, “Flan”]
+//finaliza ejemplo
+
+
