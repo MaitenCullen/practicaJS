@@ -10,26 +10,65 @@
 <body>
     <header>
         <p> aca vamos a meter alguito</p>
+        <nav>Nav que va a ser fija</nav>
     </header>
     <section >
-        <h1 class="TextoCentro"> La Auto Escuela de Carina</h1>
-        <h2 class="TextoCentro"> Acá seguro aprender a manejar</h2>
+        <div>
+            <h1 class="TextoCentro"> La Auto Escuela de Carina</h1>
+            <h2 class="TextoCentro"> Acá seguro aprender a manejar</h2>
+        </div>
         <div>
             <p class="TextoCentro">En Auto Escuela Carina te enseñamos a manejar de manera simple, en un ambiente amable, con contenidos teoricos y prácticos. <br> Para que tengas todo lo necesario al momento de salir a la calle, sin miedos!</p>
         </div>
+        <!-- <form>
+            <p>
+                Ingresa tu nombre de usuario: <input type="text" name="Usuario">
+                Ingresa tu contraseña: <input type="password" name="Contraseña">
+                <input type="submit" value="Iniciar Sesión">
+              </p>
+            <input type="checkbox" value="Sos parte del programa"> si
+            <input type="checkbox" value="Sos parte del programa"> no
+            <br>
+            <input type="submit" value="ya sos parte del programa?">
+        </form> -->
         <div>
-        <select onchange="opciones()" id="selector_curso">
-            <option value="00">seleccionar Opcion</option>
-            <option value=1>Teoricas</option>
-            <option value=2>Teoricas y Practicas</option>
-            <option value=3>Practicas</option>
-            <option value=4>Estacionamiento</option>
-            <option value=5>Curso Completo</option>
-        </select>
+            <div>
+                <select onchange="opciones()" id="selector_curso">
+                    <option value="00">seleccionar Opcion</option>
+                    <option value=1>Teoricas</option>
+                    <option value=2>Teoricas y Practicas</option>
+                    <option value=3>Practicas</option>
+                    <option value=4>Estacionamiento</option>
+                    <option value=5>Curso Completo</option>
+                </select>
+            </div>
+            <div id="div_precios_clases">
+
+            </div>
+            <div>
+                <p> Pago en efectivo</p>
+                <input onchange="radio_button(event)" type="radio" value="efectivo" name="metodo_pago"> si
+                <input onchange="radio_button(event)" type="radio" value="tarjeta" name="metodo_pago"> no
+                <br>
+            </div> 
+            <div id="precio_final">
+
+            </div>
         </div>
-        <input id="cantNafta">
-        <button onclick="porcentaje_nafta()">ClickMexNafta!</button>
-        <button onclick="mostrameOnClick()">ClinkMe1</button>
+        <div>
+            <input id="cantNafta">
+            <button onclick="porcentaje_nafta()">ClickMexNafta!</button>
+            <button onclick="mostrameOnClick()">ClinkMe1</button>
+        </div>
+        <div>
+            <ul class="lista">
+                <li class="item" value="1">Clase 1</li>
+                <li class="item" value="2">Clase 2</li>
+                <li class="item" value="3">Clase 3</li>
+                <li class="item" value="4">Clase 4</li>
+                <li class="item" value="5">Clase 5</li>
+            </ul>
+        </div>
         <article>
             <script src="codigo.js"></script>
             <p>Nos encontras en Los Cardales, Buenos Aires</p>

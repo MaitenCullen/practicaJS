@@ -253,27 +253,50 @@ console.log(seleccionar)
 const existe = clases_manejo.some(nombre => nombre.nombre === 'virtual')
 console.log(existe ) // false
 
-function opciones() {
-    const curso_seleccionado = document.getElementById("selector_curso").value;
-    if (curso_seleccionado != "00") {
-     let efectivo = prompt("desea pagar en efectivo?");
-     clases_manejo.map(clase =>{
-        if(clase.id == curso_seleccionado) {
-            if ( efectivo == "si"){
-                const Descuento = (clase.precio * 30) / 100;
-                const precioConDescuento =(clase.precio - Descuento);
-                console.log(clase)
-                alert(precioConDescuento)
-            }
+function radio_button(event){
+    let seleccion_usuario = document.getElementById("selector_curso").value;
+    if (seleccion_usuario != "00"){
+        console.log(seleccion_usuario)
+        let precio_final = document.getElementById("precio_final")
+            clases_manejo.map(clase => {
+            if (event.target.value == "efectivo"){
+                if (clase.id == seleccion_usuario) {
+                    const Descuento = (clase.precio * 30) / 100;
+                    const precioConDescuento =(clase.precio - Descuento);
+                    console.log(clase)
+                    precio_final.innerText= "el precio final es " + precioConDescuento
+                }
+            } 
             else {
                 const precioTarjeta = clase.precio;
-                        alert(precioTarjeta)
-                        console.log(clase)
-                }
-            }
-         })
+                precio_final.innerText= "el precio final es " + precioTarjeta
+                console.log("else", clase)
+            } 
+        })
+    }
+}
+
+function opciones() {
+    let curso_seleccionado = document.getElementById("selector_curso").value;
+    if (curso_seleccionado != "00") {
+    let mensaje_precios = document.getElementById("div_precios_clases")
+    mensaje_precios.innerHTML ="<p>Podes pagar con tarjeta hasta en 3 cuotas sin interes</p> <br> <p> En efectivo tenes un 30% de descuento</p>"
     }
  }
+//lista de colores que van y vienen
+let items = document.getElementsByClassName('item');
+
+for(let i = 0; i < items.length; i++){
+    //MOUSEOVER
+    items[i].addEventListener('mouseover', () => {
+        items[i].style.backgroundColor = "#4285f4";
+    })  
+   
+    //MOUSEOUT
+    items[i].addEventListener('mouseout', () => {
+        items[i].style.backgroundColor = "#ffffff";
+    })
+}
 
 
 const datos_personales = [
