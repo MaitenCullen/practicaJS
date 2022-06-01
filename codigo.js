@@ -256,22 +256,19 @@ console.log(existe ) // false
 function radio_button(event){
     let seleccion_usuario = document.getElementById("selector_curso").value;
     if (seleccion_usuario != "00"){
-        console.log(seleccion_usuario)
         let precio_final = document.getElementById("precio_final")
             clases_manejo.map(clase => {
-            if (event.target.value == "efectivo"){
                 if (clase.id == seleccion_usuario) {
-                    const Descuento = (clase.precio * 30) / 100;
-                    const precioConDescuento =(clase.precio - Descuento);
-                    console.log(clase)
-                    precio_final.innerText= "el precio final es " + precioConDescuento
-                }
-            } 
-            else {
-                const precioTarjeta = clase.precio;
-                precio_final.innerText= "el precio final es " + precioTarjeta
-                console.log("else", clase)
-            } 
+                    if (event.target.value == "efectivo") {
+                        const Descuento = (clase.precio * 30) / 100;
+                        const precioConDescuento =(clase.precio - Descuento);
+                        precio_final.innerText= "el precio final es " + precioConDescuento
+                    }
+                    else {
+                        const precioTarjeta = clase.precio;
+                        precio_final.innerText= "el precio final es " + precioTarjeta
+                    } 
+                } 
         })
     }
 }
