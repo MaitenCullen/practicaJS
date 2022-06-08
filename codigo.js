@@ -20,7 +20,7 @@ function recuperar_data(){
 document.getElementById("misterioso").addEventListener('click', () => numero_misterioso())
 
 function numero_misterioso() {
-    console.log("hola")
+    console.log("holi, hiciste click")
      let numero_misterio =  numeros_clicks + 5
     localStorage.setItem('click', numero_misterio);
 }
@@ -49,11 +49,5 @@ function fans_helado(event){
 }
 
 
-const datos_personales = [
-    {nombre: 'pepito', apellido: 'perez', dni: 1125125},
-    {nombre: 'juanita', apellido: 'gonzalez', dni: 25253},
-    {nombre: 'maria', apellido: 'sanchez', dni: 25248},
-    {nombre: 'juancito',apellido: 'gutierrez', dni: 25788},
-    {nombre: 'victoria', apellido: 'vera', dni: 965998},
-]
+
 
