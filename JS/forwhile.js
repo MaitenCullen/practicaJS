@@ -111,25 +111,7 @@ function obtener_precio(){
          }
      }
  }
- //nafta
-function porcentaje_nafta(){
-    let total = 40;
-    let nafta = document.getElementById("cantNafta").value;
-  if ( nafta >= total || nafta >= total/2){
-      alert("estas bien de nafta");
-  }
-  if (nafta < 20 && nafta > 5){
-    alert("Tenes menos de medio tanque");
-  }
-  else if (nafta <= 5 && nafta >0 ){
-      alert( "estas en reserva");
-  }
-  else {
-    alert("te quedaste sin nafta")
-  }
-}
-
-
+ 
     //minutos coccion con while
     
     function alarma(){
@@ -224,16 +206,20 @@ function porcentaje_nafta(){
     let total = 40;
     let nafta = document.getElementById("cantNafta").value;
   if ( nafta >= total || nafta >= total/2){
-      alert("estas bien de nafta");
+    Swal.fire('Estas bien de nafta');
   }
   if (nafta < 20 && nafta > 5){
-    alert("Tenes menos de medio tanque");
+    Swal.fire('Tenes medio tanque');
   }
-  else if (nafta <= 5 && nafta >0 ){
-      alert( "estas en reserva");
+  else if (nafta <= 5 && nafta > 0 ){
+    Swal.fire('Estas en reserva');
   }
   else {
-    alert("te quedaste sin nafta")
+    Swal.fire({
+        icon: 'error',
+        title: 'Te quedaste sin nafta',
+        text: 'Yo que vos, voy a cargar',
+      });
   }
 }
 

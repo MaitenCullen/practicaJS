@@ -1,0 +1,16 @@
+.lista {
+    padding: 0;
+    width: 200px;
+    li{
+        display: inline-block;
+        text-align: center;
+        width: 100%;
+        list-style: none;
+        padding: 10px;
+        border: 2px solid rgb(196, 2, 2);
+    }
+}
+/*CAROUSEL*/
+.carousel_centro{
+    justify-content: center;
+}

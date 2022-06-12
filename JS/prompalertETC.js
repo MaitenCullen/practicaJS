@@ -3,15 +3,35 @@ function bienvenidos(){
     let programa = prompt("ya sos parte del programa?");
     if ((usuario !="") && (contraseña !="") && (programa = "si")){
         alert("bienvenido");
-    } else if (usuario = ""){
-        alert ("error, solor pueen ingresar miembros del programa");
-    }
+       } else if (usuario = ""){
+         alert ("error, solor pueen ingresar miembros del programa");
+       }
 }
+
+function bienvenidos(){ //aca use un ternario
+    let usuario = prompt("ingrese nombre de usuario")
+    let contraseña = prompt("ingresar contraseña");
+    let programa = prompt("ya sos parte del programa?");  
+    return usuario !="" && contraseña !="" && programa == "si" ? alert("bienvenido") : alert ("error, solor pueen ingresar miembros del programa");
+}
+
 function mostrameOnClick(){
-    let usuario = prompt("ingresar nombre usuario");
-    let taller = prompt("ingresar taller");
-    alert(nombre_usuario(usuario, taller));
+    Swal.fire({
+        title: 'Ingrese el monto que paga el usuario:',
+        input: 'number',
+        inputLabel: 'Monto',
+        inputValue: "value",
+        showCancelButton: true,
+        inputValidator: (value) => {
+          if (!value) {
+            return 'Debe ingresar un monto!'
+          }
+        }
+      })
+
 }
+
+
 
 function nombre_usuario(a, b){
    return ("tu usuario es " + a + " " + "tu taller es " + b);

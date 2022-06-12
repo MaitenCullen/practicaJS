@@ -5,7 +5,7 @@
 let numeros_clicks = 0
 
 function irsumando_data() {
-    numeros_clicks = numeros_clicks + 1 
+    numeros_clicks++ //aca use un ++//
     localStorage.setItem('click', numeros_clicks)
     let suma_click = document.getElementById("mensaje_click")
     suma_click.innerText = " el numero de clicks es " + numeros_clicks 
@@ -47,7 +47,6 @@ function fans_helado(event){
     event.preventDefault()
     console.log(JSON.parse(localStorage.getItem('datos')));
 }
-
 
 
 

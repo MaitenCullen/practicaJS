@@ -41,6 +41,9 @@ helados.push("menta granizada"); //agregp
 
 helados.splice(3, 2) //me saco el precio y la menta granizada
 
+const mascotas = ["chapin", "Loli", "Loba"];
+console.log(...mascotas);
+//spread
 
  const datos_personales = [
     {nombre: 'pepito', apellido: 'perez', dni: 1125125},
@@ -49,11 +52,13 @@ helados.splice(3, 2) //me saco el precio y la menta granizada
     {nombre: 'juancito',apellido: 'gutierrez', dni: 25788},
     {nombre: 'victoria', apellido: 'vera', dni: 965998},
 ]
+//spread
+console.log(...datos_personales);
 
 let nombre1 = datos_personales.find((el) => el.nombre === "juanita")
 console.log(nombre1)
 
-//ejemplo productos
+//ejemplo productos es un array
 const productos = [ {id: 1,  producto: "Arroz", precio: 125},
                     {id: 2,  producto: "Fideo", precio: 70},
                     {id: 3,  producto: "Pan"  , precio: 90},
@@ -61,6 +66,13 @@ const productos = [ {id: 1,  producto: "Arroz", precio: 125},
                     {id: 5,  producto: "Harina" , precio: 150},
                     {id: 6,  producto: "Leche" , precio: 140},
                     {id: 7,  producto: "Manteca" , precio: 120},]
+
+console.log(...productos); //spread
+//desestructuracion
+const {producto, precio} = productos
+console.log(producto);
+console.log(precio);
+
 
 
 const buscado = productos.find(producto => producto.id === 3)
