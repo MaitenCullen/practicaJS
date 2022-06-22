@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
-<body>
+<body onload="obtenerProvincias()">
    
     <!--nav-->
 <div class="container-fluid">
@@ -286,6 +286,23 @@
             </div> 
         </div>
     </div>
+   
+    <div class="input-group mb-3">
+      <label class="input-group-text" for="seleccion_provincias">Options</label>
+      <select class="form-select" id="seleccion_provincias" onchange="seleccionar_provincia(event)">
+        <option selected id="provincias">Elegi una provincia...</option>
+       
+      </select>
+    </div>
+    <div class="input-group mb-3">
+      <label class="input-group-text" for="seleccion_municipio">Options</label>
+      <select class="form-select" id="seleccion_municipio">
+        <option selected id="provincias">Elegi un municipio...</option>
+       
+      </select>
+    </div>
+
+  
         <!-- EXPERIENCIAS Y UBICACION-->
     <section>
         <div class="container">
@@ -298,7 +315,7 @@
     <section> <!--precios y tipo de clases-->
         <div class="container">
             <div class="row">
-                <div>
+                <!-- <div>
                     <div>
                     <ul class="lista">
                         <li class="item" value="1">Clase 1</li>
@@ -308,7 +325,7 @@
                         <li class="item" value="5">Clase 5</li>
                     </ul>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
@@ -370,5 +387,6 @@
 <script src="./JS/prompalertETC.js"></script>
 <script src="./JS/codigo.js"></script>
 <script src="./JS/eventos.js"></script>
+<script src="./JS/ajax.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </html>
