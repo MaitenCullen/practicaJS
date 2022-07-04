@@ -5,6 +5,7 @@ let clases_manejo = [
     {id: 3, nombre: 'Practicas', precio: 1500, tarjeta: 'si'},
     {id: 4, nombre: 'Estacionamiento', precio: 1000, tarjeta: 'no'},
     {id: 5, nombre: 'Curso completo', precio: 2500, tarjeta: 'si'},
+    {id: 6, nombre: 'Transito Real', precio: 3500, tarjeta: 'si'}
 ]
 let precio_clases = clases_manejo.map((clase) => {
     return {
@@ -52,7 +53,7 @@ function opciones() {
 
 
  
-//lista de colores que van y vienen
+//lista de colores que van y vienen NUNCA ANDUVO 
 let items = document.getElementsByClassName('item');
 
 for(let i = 0; i < items.length; i++){
