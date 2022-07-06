@@ -1,63 +1,88 @@
 
 //carrito
+
 let cursosSeleccionadosCompras = []
+let tabla = document.getElementById("tablaCursos")
+let row
+let botonEliminar
+let celdaNombre 
+let celdaCantidad 
+let celdaPrecio 
+let button 
 
 function carrito(id) {
  let cursoSeleccionado = cursos.find(curso => curso.id === Number(id))
- cursosSeleccionadosCompras.push(cursoSeleccionado)
- localStorage.setItem('curso', JSON.stringify(cursosSeleccionadosCompras))
- Swal.fire({
-    position: 'bottom-end',
-    icon: 'success',
-    title: 'curso agregado',
-    showConfirmButton: false,
-    timer: 1500,
-    width:'20em',
-  })
-carritoCursos()
+ const existeId = cursosSeleccionadosCompras.some(item => item.id === Number(id));
+ console.log("existeId: ", existeId)
+ if (!existeId) {
+    cursosSeleccionadosCompras.push(cursoSeleccionado)
+    localStorage.setItem('curso', JSON.stringify(cursosSeleccionadosCompras))
+    Swal.fire({
+       position: 'bottom-end',
+       icon: 'success',
+       title: 'curso agregado',
+       showConfirmButton: false,
+       timer: 1500,
+       width:'20em',
+     })
+   carritoCursos(id)
+ }
 }
 
-function carritoCursos(){
-    let cursosObtenido = JSON.parse(localStorage.getItem('curso'))
-    let row = document.createElement("tr")
-    let botonEliminar = document.createElement("td")
-    let celdaNumero = document.createElement("td")
-    let celdaNombre = document.createElement("td")
-    let celdaCantidad = document.createElement("td")
-    let celdaPrecio = document.createElement("td")
-    let button = document.createElement("button")
-    button.textContent = "Eliminar"
+function carritoCursos(id){
+        createRow(id)
+        cursosSeleccionadosCompras.map((curso) => {   
+            celdaNombre.innerText = curso.nombre;
+            celdaCantidad.innerText = curso.tarjeta;
+            celdaPrecio.innerText = curso.precio;
+            button.onclick = () => eliminarCurso(curso)
+            botonEliminar.appendChild(button)
+        }) 
+        dibujarRow()
+}
 
-    cursosObtenido.map((curso,index) => {   
-        celdaNumero.innerText = index + 1;
+function cargarCarritoInicial(){
+    if (localStorage.getItem('curso')){
+        cursosSeleccionadosCompras = JSON.parse(localStorage.getItem('curso'))
+    }
+    cursosSeleccionadosCompras.map((curso) => {   
+        createRow(curso.id)
         celdaNombre.innerText = curso.nombre;
         celdaCantidad.innerText = curso.tarjeta;
         celdaPrecio.innerText = curso.precio;
-        button.onclick = () => eliminarCurso(curso, row)
+        button.onclick = () => eliminarCurso(curso)
         botonEliminar.appendChild(button)
-    })
+        dibujarRow()
+    })     
+}
 
-    let tabla = document.getElementById("tablaCursos")
-    row.appendChild(celdaNumero)
+function createRow(id) {
+    row = document.createElement("tr")
+    row.id = "row" + id
+    botonEliminar = document.createElement("td")
+    celdaNombre = document.createElement("td")
+    celdaCantidad = document.createElement("td")
+    celdaPrecio = document.createElement("td")
+    button = document.createElement("button")
+    button.textContent = "Eliminar"
+}
+
+function dibujarRow() {
     row.appendChild(celdaNombre)
     row.appendChild(celdaCantidad)
     row.appendChild(celdaPrecio)
     row.appendChild(botonEliminar)
     tabla.appendChild(row)
-
 }
 
-
-// const jsLibraries = ['react', 'redux', 'vue', 'D3', 'Chart']
-// const filteredLibraries = jsLibraries.filter((item) => item !== 'react')
-
-function eliminarCurso(curso, row){
+function eliminarCurso(curso){
     let cursosObtenido = JSON.parse(localStorage.getItem('curso'))
     const filtroCursos = cursosObtenido.filter((item) => item.id != curso.id)
     cursosSeleccionadosCompras = filtroCursos
     localStorage.setItem('curso', JSON.stringify(cursosSeleccionadosCompras))
-    row.remove()
-    console.log(filtroCursos)
+    document.getElementById("row" + curso.id).remove()
+    console.log(document.getElementById(curso.id),curso.id)
+   
 }
 
 const cursos =[

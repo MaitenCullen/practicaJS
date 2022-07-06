@@ -14,10 +14,7 @@
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MaitenCullen/SantaFeMasBoostrap/issues"
-  },
-  "homepage": "https://github.com/MaitenCullen/SantaFeMasBoostrap#readme",
+  "homepage": "",
   "devDependencies": {
     "node-sass": "^7.0.1",
     "nodemon": "^2.0.15"
