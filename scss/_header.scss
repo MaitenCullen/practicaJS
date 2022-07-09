@@ -1,25 +1,37 @@
 /*header*/
 
-.navbar { height: 50px; 
-    background: #2c3e50; 
-    border-bottom: 1px dashed #3498db;
-}
- .navbar a {
-     padding: 0 15px;
-     color: #fff; 
-     text-decoration: none; 
-     text-transform: uppercase; 
-     font: 15px 'Stint Ultra Condensed';
-    }
-
 
 .header {
      display: flex; 
      justify-content: center; 
      align-items: center; 
     }
+
 .header { 
     height: 450px;
-     background: url(../img/1.jpg) no-repeat center top; 
+     background: url(../img/001.jpg) no-repeat center; 
      background-size: cover;
     }
+
+
+.navbar1 { 
+    height: 50px; 
+    background: #2c3e50; 
+    border-bottom: 1px dashed #ecf7ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+    
+    
+.navbar1 a {
+    padding: 0 15px;
+    color: #fff; 
+    text-decoration: none; 
+    text-transform: uppercase; 
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    &:hover {
+        color: yellow;
+    }
+}
