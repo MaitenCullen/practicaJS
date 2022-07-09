@@ -6,7 +6,7 @@ function onload() {
 }
 
 
-//carrito Y COSO COMPRAS
+//carrito y tabla cursos seleccionados
 
 let cursosSeleccionadosCompras = []
 let tabla = document.getElementById("tablaCursos")
@@ -102,7 +102,6 @@ const cursos =[
     {id: 5, nombre: 'Transito Real', precio: 2500, tarjeta: 'si'},
     {id: 6, nombre: 'Simulacion de examen', precio: 3500, tarjeta: 'si'}
 ]
-//ANTES
 
 let sumaTotal = 0
 
@@ -185,22 +184,6 @@ $(document).ready(function(){
 
 
 
-//tarjeta switch
-
-function obtener_precio(){
-    let formadePago = prompt("ingresar forma de pago");
-    switch (formadePago) {
-        case "tres cuotas":
-             alert("$3.500");
-             break;
-         case "efectivo":
-             alert("$2.500");
-             break;
-         case "tarjeta 1 pago":
-         alert("$3.000");
-         break;
-    }
- }
 
  
  
@@ -273,21 +256,21 @@ function popular_municipios() {
 
 //LOGIN Y SIGNUP//
 
- const signupButton = document.getElementById('signup-button'),
- loginButton = document.getElementById('login-button'),
- userForms = document.getElementById('user_options-forms')
+    const signupButton = document.getElementById('signup-button'),
+    loginButton = document.getElementById('login-button'),
+    userForms = document.getElementById('user_options-forms')
 
 //BOTON SIGNUP
-signupButton.addEventListener('click', () => {
-userForms.classList.remove('bounceRight')
-userForms.classList.add('bounceLeft')
-}, false)
+    signupButton.addEventListener('click', () => {
+    userForms.classList.remove('bounceRight')
+    userForms.classList.add('bounceLeft')
+    }, false)
 
 //BOTON LOGIN
-loginButton.addEventListener('click', () => {
-userForms.classList.remove('bounceLeft')
-userForms.classList.add('bounceRight')
-}, false)
+    loginButton.addEventListener('click', () => {
+    userForms.classList.remove('bounceLeft')
+    userForms.classList.add('bounceRight')
+    }, false)
 
 //BOTON MAPS//
 function mapsapp(){
